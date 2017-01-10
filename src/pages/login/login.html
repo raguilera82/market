@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="form" novalidate>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="email" name="email" formControlName="email"></ion-input>
+    </ion-item>
+ 
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" name="password" formControlName="password"></ion-input>
+    </ion-item>
+ 
+    <div padding>
+      <button ion-button block (click)="login()" [disabled]="!form.valid">Login</button>
+      <button ion-button block (click)="register()" [disabled]="!form.valid">Create New Account</button>
+    </div>
+  </form>
+
+  <p>{{error}}</p>
+</ion-content>
