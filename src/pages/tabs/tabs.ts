@@ -1,3 +1,5 @@
+import { NavController } from 'ionic-angular';
+import { CartService } from './../../providers/cart-service';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { CartPage } from '../cart/cart';
@@ -11,12 +13,14 @@ export class TabsPage {
   tab1Root: any = HomePage;
   tab2Root: any = CartPage;
 
-  cartElements: number;
+  numberCartElements: number;
 
-  constructor() {}
+  constructor(private cartService: CartService) {
+  }
 
   ngOnInit() {
-    this.cartElements = 4;
+    this.cartService.init();
+    this.numberCartElements = 2;
   }
 
 }
