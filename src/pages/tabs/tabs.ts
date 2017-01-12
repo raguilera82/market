@@ -1,8 +1,9 @@
-import { NavController } from 'ionic-angular';
 import { CartService } from './../../providers/cart-service';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { CartPage } from '../cart/cart';
+
+declare var dataLayer: Array<any>;
 
 @Component({
   selector: 'page-tabs',
@@ -15,7 +16,15 @@ export class TabsPage {
 
   numberCartElements: number;
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService) {}
+
+  ionViewWillEnter() {
+    console.log('ionViewDidLoad TabsPage');
+    dataLayer.push({
+      'screenPath': 'tabs',
+      'screenName': 'Tabs'
+    });
+    dataLayer.push({'event': 'appScreenView'});
   }
 
   ngOnInit() {

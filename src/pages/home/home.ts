@@ -11,7 +11,7 @@ export class HomePage {
 
   constructor(private fireAuth: FirebaseAuth) {}
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     console.log('ionViewDidLoad HomePage');
     dataLayer.push({
       'screenPath': 'home',
