@@ -20,6 +20,7 @@ export class MyApp {
   constructor(private platform: Platform, private fireAuth: FirebaseAuth,
   private userService: UserService) {
     platform.ready().then(() => {
+      window.ga.startTrackerWithId("UA-90237421-1");
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
