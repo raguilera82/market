@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from 'ionic-native';
 import { FirebaseAuth } from 'angularfire2';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -33,6 +34,10 @@ export class LoginPage implements OnInit {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+  }
+
+  ionViewWillEnter() {
+    GoogleAnalytics.trackView('Login');
   }
 
   login() {

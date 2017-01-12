@@ -2,7 +2,7 @@ import { TabsPage } from './../pages/tabs/tabs';
 import { FirebaseAuth } from 'angularfire2';
 import { Component, ViewChild } from '@angular/core';
 import { Platform } from 'ionic-angular';
-import { StatusBar, Splashscreen } from 'ionic-native';
+import { StatusBar, Splashscreen, GoogleAnalytics } from 'ionic-native';
 
 import { UserService } from '../providers/user-service';
 import { LoginPage } from '../pages/login/login';
@@ -24,6 +24,13 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       Splashscreen.hide();
+      GoogleAnalytics.startTrackerWithId('UA-90237421-1').then(
+        () => {
+          console.log('GoogleAnalytics configured');
+        }
+      );
+      GoogleAnalytics.setAppVersion('market 1.0');
+      GoogleAnalytics.debugMode();
       this.init();
     });
   }
@@ -33,6 +40,7 @@ export class MyApp {
       if (!data) {
         this.nav.setRoot(LoginPage);
       }else {
+        GoogleAnalytics.setUserId(data.auth.uid);
         this.userService.setUser(data.auth.uid, data.auth.email);
         this.nav.setRoot(TabsPage);
       }
