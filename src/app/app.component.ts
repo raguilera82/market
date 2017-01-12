@@ -1,10 +1,9 @@
 import { TabsPage } from './../pages/tabs/tabs';
 import { FirebaseAuth } from 'angularfire2';
 import { Component, ViewChild } from '@angular/core';
-import { Platform, NavController } from 'ionic-angular';
+import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-import { HomePage } from '../pages/home/home';
 import { UserService } from '../providers/user-service';
 import { LoginPage } from '../pages/login/login';
 
@@ -16,7 +15,7 @@ export class MyApp {
 
   @ViewChild('nav') nav;
 
-  rootPage = HomePage;
+  rootPage = null;
 
   constructor(private platform: Platform, private fireAuth: FirebaseAuth,
   private userService: UserService) {
@@ -31,13 +30,11 @@ export class MyApp {
 
    init() {
     this.fireAuth.subscribe(data => {
-      console.log(data);
       if (!data) {
-        this.nav.push(LoginPage);
+        this.nav.setRoot(LoginPage);
       }else {
-        console.log('DATA_AUTH_EMAIL: ' + data.auth.email);
         this.userService.setUser(data.auth.uid, data.auth.email);
-        this.nav.push(TabsPage);
+        this.nav.setRoot(TabsPage);
       }
     }); 
   }
