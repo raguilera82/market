@@ -1,16 +1,21 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Market
-    </ion-title>
     <ion-buttons start>
       <button ion-button icon-only color="royal" (click)="logout()">
         <ion-icon name="person"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      <input type="text" value="{{code}}"/>
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only color="royal" (click)="scanner()">
+        <ion-icon name="qr-scanner"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
- <p>This is the home</p>
+  <p>This is the home</p>
 </ion-content>

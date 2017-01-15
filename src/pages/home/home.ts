@@ -1,3 +1,4 @@
+import { ScannerService } from './../../providers/scanner-service';
 import { GoogleAnalytics } from 'ionic-native';
 import { FirebaseAuth } from 'angularfire2';
 import { Component } from '@angular/core';
@@ -8,7 +9,9 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor(private fireAuth: FirebaseAuth) {}
+  code: string;
+
+  constructor(private fireAuth: FirebaseAuth, private scannerService: ScannerService) {}
 
   ionViewWillEnter() {
     GoogleAnalytics.trackView('Home');
@@ -16,6 +19,15 @@ export class HomePage {
 
   logout() {
     this.fireAuth.logout();
+  }
+
+  scanner() {
+    this.scannerService.scanner().then((data) => {
+      this.code = data.text;
+    }, (err) => {
+      this.code = err;
+      console.log(err);
+    })
   }
 
 }
