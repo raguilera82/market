@@ -1,17 +1,28 @@
+import { ElementsService } from './../../providers/elements-service';
 import { ScannerService } from './../../providers/scanner-service';
 import { GoogleAnalytics } from 'ionic-native';
 import { FirebaseAuth } from 'angularfire2';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Element } from '../../model/element';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
+export class HomePage implements OnInit{
+
+  elements: Array<Element>;
 
   code: string;
 
-  constructor(private fireAuth: FirebaseAuth, private scannerService: ScannerService) {}
+  constructor(
+    private fireAuth: FirebaseAuth, 
+    private scannerService: ScannerService,
+    private elementsService: ElementsService) {}
+
+  ngOnInit() {
+    this.elements = this.elementsService.getElements();
+  }
 
   ionViewWillEnter() {
     GoogleAnalytics.trackView('Home');

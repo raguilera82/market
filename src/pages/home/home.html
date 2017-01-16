@@ -17,5 +17,11 @@
 </ion-header>
 
 <ion-content padding>
-  <p>This is the home</p>
+  <ion-card *ngFor="let element of elements">
+    <ion-item>
+      <ion-icon name="{{element.image}}" item-left large></ion-icon>
+      <h2>{{element.title}}</h2>
+      <h3>{{element.price | currency:'EUR':true}}</h3>
+    </ion-item>
+  </ion-card>
 </ion-content>

@@ -1,3 +1,4 @@
+import { ElementsService } from './../providers/elements-service';
 
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -47,6 +48,6 @@ const FIREBASE_AUTH_CONFIG = {
     CartPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, 
-  CartService, UserService, ScannerService]
+  CartService, UserService, ScannerService, ElementsService]
 })
 export class AppModule {}
