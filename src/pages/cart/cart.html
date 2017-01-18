@@ -10,4 +10,11 @@
 
 <ion-content padding>
   <p>SHOPPING CART</p>
+  <ion-card *ngFor="let element of elements">
+    <ion-item (tap)="delete(element)">
+      <ion-icon name="{{element.image}}" item-left large></ion-icon>
+      <h2>{{element.title}}</h2>
+      <h3>{{element.price | currency:'EUR':true}}</h3>
+    </ion-item>
+  </ion-card>
 </ion-content>

@@ -19,7 +19,9 @@ export class TabsPage {
   }
 
   ngOnInit() {
-    this.events.subscribe('cart:addElement', (element) => {
+    this.refresh();
+    
+    this.events.subscribe('cart:updateCart', (element) => {
       this.refresh();
     });
   }

@@ -49,7 +49,7 @@ export class HomePage implements OnInit{
 
   add(element: Element) {
     this.cartService.addElement(element);
-    this.events.publish('cart:addElement', element);
+    this.events.publish('cart:updateCart', element);
   }
 
 }

@@ -12,6 +12,7 @@ import { TabsPage } from './../pages/tabs/tabs';
 import { CartService } from '../providers/cart-service';
 import { UserService } from '../providers/user-service';
 import { ScannerService } from '../providers/scanner-service';
+import { ToastService } from '../providers/toast-service';
 
 const FIREBASE_CONFIG = {
     apiKey: "AIzaSyD24HG4JTZ-rl4N1vG3qsJIqk1xt9c_pBQ",
@@ -48,6 +49,6 @@ const FIREBASE_AUTH_CONFIG = {
     CartPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, 
-  CartService, UserService, ScannerService, ElementsService]
+  CartService, UserService, ScannerService, ElementsService, ToastService]
 })
 export class AppModule {}
