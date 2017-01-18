@@ -36,4 +36,5 @@
   <plugin name="cordova-plugin-splashscreen" spec="~4.0.1"/>
   <plugin name="cordova-plugin-google-analytics" spec="~1.6.0"/>
   <allow-navigation href="http://192.168.0.155:8100"/>
+  <allow-navigation href="http://192.168.1.41:8100"/>
 </widget>

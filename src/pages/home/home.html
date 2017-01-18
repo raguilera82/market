@@ -18,7 +18,7 @@
 
 <ion-content padding>
   <ion-card *ngFor="let element of elements">
-    <ion-item>
+    <ion-item (tap)="add(element)">
       <ion-icon name="{{element.image}}" item-left large></ion-icon>
       <h2>{{element.title}}</h2>
       <h3>{{element.price | currency:'EUR':true}}</h3>

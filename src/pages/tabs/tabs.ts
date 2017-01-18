@@ -1,8 +1,8 @@
-import { NavController } from 'ionic-angular';
 import { CartService } from './../../providers/cart-service';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { CartPage } from '../cart/cart';
+import { Events } from 'ionic-angular';
 
 @Component({
   selector: 'page-tabs',
@@ -15,12 +15,17 @@ export class TabsPage {
 
   numberCartElements: number;
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private events: Events) {
   }
 
   ngOnInit() {
-    this.cartService.init();
-    this.numberCartElements = 2;
+    this.events.subscribe('cart:addElement', (element) => {
+      this.refresh();
+    });
+  }
+
+  refresh() {
+    this.numberCartElements = this.cartService.count();
   }
 
 }
