@@ -2,15 +2,13 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>cart</ion-title>
+    <ion-title>SHOPPING CART</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <p>SHOPPING CART</p>
-  <p>Total: {{total | currency:'EUR':true}}</p>
   <ion-card *ngFor="let element of elements">
     <ion-item (tap)="delete(element)">
       <ion-icon name="{{element.image}}" item-left large></ion-icon>
@@ -19,3 +17,9 @@
     </ion-item>
   </ion-card>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Total: {{total | currency:'EUR':true}}</ion-title>
+  </ion-toolbar>
+</ion-footer>

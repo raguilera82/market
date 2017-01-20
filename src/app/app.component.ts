@@ -21,7 +21,6 @@ export class MyApp {
   private userService: UserService) {
     platform.ready().then(() => {
       StatusBar.styleDefault();
-      Splashscreen.hide();
       GoogleAnalytics.startTrackerWithId('UA-90237421-1').then(
         () => {
           console.log('GoogleAnalytics configured');
@@ -30,6 +29,7 @@ export class MyApp {
       GoogleAnalytics.setAppVersion('market 1.0');
       GoogleAnalytics.debugMode();
       this.init();
+      Splashscreen.hide();
     });
   }
 

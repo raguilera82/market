@@ -1,4 +1,4 @@
-import { Events } from 'ionic-angular';
+import { Events, NavController } from 'ionic-angular';
 import { ElementsService } from './../../providers/elements-service';
 import { ScannerService } from './../../providers/scanner-service';
 import { GoogleAnalytics } from 'ionic-native';
@@ -6,6 +6,7 @@ import { FirebaseAuth } from 'angularfire2';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Element } from '../../model/element';
 import { CartService } from '../../providers/cart-service';
+import { CartPage } from '../cart/cart';
 
 @Component({
   selector: 'page-home',
@@ -24,7 +25,8 @@ export class HomePage implements OnInit{
     private scannerService: ScannerService,
     private elementsService: ElementsService,
     private cartService: CartService,
-    private events: Events) {}
+    private events: Events,
+    private navCtrl: NavController) {}
 
   ngOnInit() {
     this.elements = this.elementsService.getElements();
@@ -41,6 +43,13 @@ export class HomePage implements OnInit{
   scanner() {
     this.scannerService.scanner().then((data) => {
       this.code = data.text;
+      if (data.text !== '') {
+        let scannerElement = new Element('Del scanner', 'star', 32);
+        this.add(scannerElement);
+        this.code = '';
+        this.navCtrl.setRoot(CartPage);
+        this.navCtrl.parent.select(1);
+      }
     }, (err) => {
       this.code = err;
       console.log(err);
