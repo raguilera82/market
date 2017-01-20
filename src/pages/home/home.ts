@@ -6,7 +6,7 @@ import { FirebaseAuth } from 'angularfire2';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Element } from '../../model/element';
 import { CartService } from '../../providers/cart-service';
-import { CartPage } from '../cart/cart';
+import { TabsPage } from '../tabs/tabs';
 
 @Component({
   selector: 'page-home',
@@ -47,7 +47,7 @@ export class HomePage implements OnInit{
         let scannerElement = new Element('Del scanner', 'star', 32);
         this.add(scannerElement);
         this.code = '';
-        this.navCtrl.setRoot(CartPage);
+        this.navCtrl.setRoot(TabsPage);
         this.navCtrl.parent.select(1);
       }
     }, (err) => {
