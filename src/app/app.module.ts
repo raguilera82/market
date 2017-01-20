@@ -1,6 +1,6 @@
 import { ElementsService } from './../providers/elements-service';
 
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler, LOCALE_ID } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -48,7 +48,8 @@ const FIREBASE_AUTH_CONFIG = {
     TabsPage,
     CartPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, 
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
+  {provide: LOCALE_ID, useValue: 'es'}, 
   CartService, UserService, ScannerService, ElementsService, ToastService]
 })
 export class AppModule {}

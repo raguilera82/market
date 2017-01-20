@@ -3,7 +3,6 @@ import { FirebaseAuth } from 'angularfire2';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
-import { HomePage } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
 
 @Component({

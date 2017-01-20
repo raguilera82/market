@@ -49,7 +49,8 @@ export class HomePage implements OnInit{
 
   add(element: Element) {
     this.cartService.addElement(element);
-    this.events.publish('cart:updateCart', element);
+    this.events.publish('cart:updateCart');
+    this.events.publish('cart:updateNumberCart', (this.cartService.count()));
   }
 
 }

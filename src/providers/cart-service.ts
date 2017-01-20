@@ -14,11 +14,13 @@ export class CartService {
 
   addElement(element: Element): void {
     this.cart.elements.push(element);
+    this.cart.total += element.price;
   }
 
   removeElement(element: any): void {
     let index = this.cart.elements.indexOf(element);
     this.cart.elements.splice(index, 1);
+    this.cart.total -= element.price;
   }
 
   count(): number {
@@ -32,6 +34,11 @@ export class CartService {
 
   reset(): void {
     this.cart.elements = new Array<Element>();
+    this.cart.total = 0;
+  }
+
+  total(): number {
+    return this.cart.total;
   }
 
 }

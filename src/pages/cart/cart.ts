@@ -13,15 +13,17 @@ import { Events } from 'ionic-angular';
 export class CartPage {
 
   elements: Array<Element>;
+  total: number = 0;
 
-  constructor(private cartService: CartService, private events: Events, private toastService: ToastService) {}
+  constructor(private cartService: CartService, private events: Events, private toastService: ToastService) { }
 
   ngOnInit() {
+    
     this.elements = new Array<Element>();
 
-    this.events.subscribe('cart:removeElement', (element) => {
+    this.events.subscribe('cart:updateCart', () => {
       this.elements = this.cartService.cart.elements;
-      this.events.publish('cart:updateCart', element);
+      this.total = this.cartService.cart.total;
     });
 
   }
@@ -33,11 +35,17 @@ export class CartPage {
   ionViewWillEnter() {
     GoogleAnalytics.trackView('Cart');
     this.elements = this.cartService.cart.elements;
+    let sum = 0;
+    for (let elem of this.elements) {
+      sum = sum + elem.price;
+    }
+    this.total = sum;
   }
 
   delete(element: Element) {
     this.cartService.removeElement(element);
-    this.events.publish('cart:removeElement', element);
+    this.events.publish('cart:updateCart');
+    this.events.publish('cart:updateNumberCart', this.cartService.count());
     this.toastService.showMessage(element.title);
   }
 

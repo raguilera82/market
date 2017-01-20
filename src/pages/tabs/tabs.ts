@@ -19,15 +19,15 @@ export class TabsPage {
   }
 
   ngOnInit() {
-    this.refresh();
     
-    this.events.subscribe('cart:updateCart', (element) => {
-      this.refresh();
+    this.events.subscribe('cart:updateNumberCart', (numberCart) => {
+      this.refresh(numberCart);
     });
+
   }
 
-  refresh() {
-    this.numberCartElements = this.cartService.count();
+  refresh(numberCart: number) {
+    this.numberCartElements = numberCart;
   }
 
 }
