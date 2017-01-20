@@ -28,10 +28,6 @@ export class CartPage {
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CartPage');
-  }
-
   ionViewWillEnter() {
     GoogleAnalytics.trackView('Cart');
     this.elements = this.cartService.cart.elements;

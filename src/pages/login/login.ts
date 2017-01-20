@@ -24,17 +24,12 @@ export class LoginPage implements OnInit {
     private alertCtrl: AlertController) {}
 
   ngOnInit() {
-    console.log('En el OnInit de login');
     this.form = new FormGroup({
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required)
     })
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
-
+  
   ionViewWillEnter() {
     GoogleAnalytics.trackView('Login');
   }

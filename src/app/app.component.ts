@@ -20,8 +20,6 @@ export class MyApp {
   constructor(private platform: Platform, private fireAuth: FirebaseAuth,
   private userService: UserService) {
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       Splashscreen.hide();
       GoogleAnalytics.startTrackerWithId('UA-90237421-1').then(
