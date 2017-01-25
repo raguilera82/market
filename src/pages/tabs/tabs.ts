@@ -1,3 +1,4 @@
+import { CaritaPage } from './../carita/carita';
 import { CartService } from './../../providers/cart-service';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
@@ -12,6 +13,7 @@ export class TabsPage {
 
   tab1Root: any = HomePage;
   tab2Root: any = CartPage;
+  tab3Root: any = CaritaPage;
 
   numberCartElements: number;
 

@@ -1,6 +1,7 @@
+import { CaritaPage } from './../pages/carita/carita';
 import { ElementsService } from './../providers/elements-service';
 
-import { NgModule, ErrorHandler, LOCALE_ID } from '@angular/core';
+import { NgModule, ErrorHandler, LOCALE_ID, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -33,7 +34,8 @@ const FIREBASE_AUTH_CONFIG = {
     HomePage,
     LoginPage,
     TabsPage,
-    CartPage
+    CartPage,
+    CaritaPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -46,10 +48,12 @@ const FIREBASE_AUTH_CONFIG = {
     HomePage,
     LoginPage,
     TabsPage,
-    CartPage
+    CartPage,
+    CaritaPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
   {provide: LOCALE_ID, useValue: 'es'}, 
-  CartService, UserService, ScannerService, ElementsService, ToastService]
+  CartService, UserService, ScannerService, ElementsService, ToastService],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}
