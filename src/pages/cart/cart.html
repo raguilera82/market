@@ -1,4 +1,3 @@
-
 <ion-header>
 
   <ion-navbar>
@@ -9,13 +8,15 @@
 
 
 <ion-content padding>
-  <ion-card *ngFor="let element of elements">
-    <ion-item (tap)="delete(element)">
-      <ion-icon name="{{element.image}}" item-left large></ion-icon>
-      <h2>{{element.title}}</h2>
-      <h3>{{element.price | currency:'EUR':true}}</h3>
-    </ion-item>
-  </ion-card>
+  <ion-list [virtualScroll]="elements">
+    <ion-card *virtualItem="let element">
+      <ion-item (tap)="delete(element)">
+        <ion-icon name="{{element.image}}" item-left large></ion-icon>
+        <h2>{{element.title}}</h2>
+        <h3>{{element.price | currency:'EUR':true}}</h3>
+      </ion-item>
+    </ion-card>
+  </ion-list>
 </ion-content>
 
 <ion-footer>

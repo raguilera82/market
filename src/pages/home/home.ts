@@ -30,6 +30,12 @@ export class HomePage implements OnInit{
 
   ngOnInit() {
     this.elements = this.elementsService.getElements();
+
+    for (let i=0; i<300; i++){
+      let testElement = new Element('Para test', 'star', i);
+        this.add(testElement);
+    }
+    
   }
 
   ionViewWillEnter() {
