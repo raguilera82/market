@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>people</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list *ngIf="users">
+    <ion-item *ngFor="let user of users">
+      <ion-thumbnail item-left>
+        <img src="{{user.avatar_url}}">
+      </ion-thumbnail>
+      <h2>{{user.login}}</h2>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

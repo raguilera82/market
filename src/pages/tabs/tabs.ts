@@ -4,6 +4,7 @@ import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { CartPage } from '../cart/cart';
 import { Events } from 'ionic-angular';
+import { PeoplePage } from '../people/people';
 
 @Component({
   selector: 'page-tabs',
@@ -14,6 +15,7 @@ export class TabsPage {
   tab1Root: any = HomePage;
   tab2Root: any = CartPage;
   tab3Root: any = CaritaPage;
+  tab4Root: any = PeoplePage;
 
   numberCartElements: number;
 

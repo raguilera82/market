@@ -1,3 +1,4 @@
+import { PeoplePage } from './../pages/people/people';
 import { CaritaPage } from './../pages/carita/carita';
 import { ElementsService } from './../providers/elements-service';
 
@@ -5,6 +6,7 @@ import { NgModule, ErrorHandler, LOCALE_ID, CUSTOM_ELEMENTS_SCHEMA } from '@angu
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { ReactiveFormsModule } from '@angular/forms';
+import { GithubModule } from '@raguilera82/angular-github-library';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
@@ -35,12 +37,14 @@ const FIREBASE_AUTH_CONFIG = {
     LoginPage,
     TabsPage,
     CartPage,
-    CaritaPage
+    CaritaPage,
+    PeoplePage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG, FIREBASE_AUTH_CONFIG),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GithubModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -49,7 +53,8 @@ const FIREBASE_AUTH_CONFIG = {
     LoginPage,
     TabsPage,
     CartPage,
-    CaritaPage
+    CaritaPage,
+    PeoplePage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
   {provide: LOCALE_ID, useValue: 'es'}, 
