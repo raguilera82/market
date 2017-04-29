@@ -1,7 +1,10 @@
+import { LocalNotificationsPage } from './../pages/local-notifications/local-notifications';
 import { PeoplePage } from './../pages/people/people';
 import { CaritaPage } from './../pages/carita/carita';
 import { ElementsService } from './../providers/elements-service';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler, LOCALE_ID, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
@@ -38,9 +41,12 @@ const FIREBASE_AUTH_CONFIG = {
     TabsPage,
     CartPage,
     CaritaPage,
-    PeoplePage
+    PeoplePage,
+    LocalNotificationsPage
   ],
   imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG, FIREBASE_AUTH_CONFIG),
     ReactiveFormsModule,
@@ -54,7 +60,8 @@ const FIREBASE_AUTH_CONFIG = {
     TabsPage,
     CartPage,
     CaritaPage,
-    PeoplePage
+    PeoplePage,
+    LocalNotificationsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
   {provide: LOCALE_ID, useValue: 'es'}, 

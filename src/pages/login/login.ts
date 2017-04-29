@@ -1,9 +1,9 @@
 import { GoogleAnalytics } from 'ionic-native';
-import { FirebaseAuth } from 'angularfire2';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
+import { FirebaseAuth } from 'angularfire2';
 
 @Component({
   selector: 'page-login',

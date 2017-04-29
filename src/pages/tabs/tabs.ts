@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
 import { CartPage } from '../cart/cart';
 import { Events } from 'ionic-angular';
 import { PeoplePage } from '../people/people';
+import { LocalNotificationsPage } from '../local-notifications/local-notifications';
 
 @Component({
   selector: 'page-tabs',
@@ -16,6 +17,7 @@ export class TabsPage {
   tab2Root: any = CartPage;
   tab3Root: any = CaritaPage;
   tab4Root: any = PeoplePage;
+  tab5Root: any = LocalNotificationsPage;
 
   numberCartElements: number;
 

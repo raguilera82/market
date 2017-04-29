@@ -2,11 +2,11 @@ import { Events, NavController } from 'ionic-angular';
 import { ElementsService } from './../../providers/elements-service';
 import { ScannerService } from './../../providers/scanner-service';
 import { GoogleAnalytics } from 'ionic-native';
-import { FirebaseAuth } from 'angularfire2';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Element } from '../../model/element';
 import { CartService } from '../../providers/cart-service';
 import { TabsPage } from '../tabs/tabs';
+import { AngularFireAuth } from "angularfire2/auth";
 
 @Component({
   selector: 'page-home',
@@ -21,7 +21,7 @@ export class HomePage implements OnInit{
   code: string;
 
   constructor(
-    private fireAuth: FirebaseAuth, 
+    private fireAuth: AngularFireAuth, 
     private scannerService: ScannerService,
     private elementsService: ElementsService,
     private cartService: CartService,
